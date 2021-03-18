@@ -26,7 +26,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '--no-build -v normal -o $(Build.ArtifactStagingDirectory)/test'
+    arguments: '-v normal -o $(Build.ArtifactStagingDirectory)/test'
     modifyOutputPath: false
 
 - task: PublishBuildArtifacts@1
