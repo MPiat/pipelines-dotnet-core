@@ -26,11 +26,11 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '-v normal -o $(Build.ArtifactStagingDirectory)'
+    arguments: '-v normal -o $(Build.ArtifactStagingDirectory)/test_zip.zip'
     modifyOutputPath: true
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/test_zip'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
