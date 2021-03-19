@@ -11,6 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  pathToPublish: '$(Build.ArtifactStagingDirectory)/test_zip'
 
 steps:
 - task: DotNetCoreCLI@2
@@ -26,12 +27,12 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '-v normal -o $(Build.ArtifactStagingDirectory)/test_zip'
+    arguments: '-v normal -o $(pathToPublish)'
     modifyOutputPath: false
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/test_zip'
+    PathtoPublish: '$(pathToPublish)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
