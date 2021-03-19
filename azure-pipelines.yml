@@ -27,7 +27,7 @@ steps:
     command: 'publish'
     publishWebProjects: true
     arguments: '-v normal -o $(Build.ArtifactStagingDirectory)/test_zip'
-    modifyOutputPath: true
+    modifyOutputPath: false
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
