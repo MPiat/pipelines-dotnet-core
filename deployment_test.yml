@@ -6,12 +6,19 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- stage : deploy
+  jobs:
+  - deployment: deploy Web App
+    pool:
+    vmImage: ubuntu-latest
+    environment: 'test'
+    strategy:
+      runOnce:
+        deploy:          
+          steps:
+          - script: echo Hello, world!
+            displayName: 'Run a one-line script'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
